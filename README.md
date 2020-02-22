@@ -15,13 +15,18 @@ function same(arr1, arr2){
     return true;
 }
 const arr1 = [1,2,3,4,5]
+
 const arr2 = [4,16,25,1,9]
+
 const result = same(arr1, arr2);
+
 console.log(result)
 
 
 //BEST SOLUTION
+
 function same(arr1, arr2){
+
     if (arr1.length !== arr2.length) {
         return false;
     }
@@ -45,6 +50,9 @@ function same(arr1, arr2){
 } 
 
 const bestarr1 = [1, 2, 3, 4, 5]
+
 const bestarr2 = [4, 16, 25, 1, 79]
+
 const bestresult = same(bestarr1, bestarr2);
+
 console.log(bestresult)
