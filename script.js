@@ -1,23 +1,35 @@
-function validAnagram(first, second){
-    if(first.length !== second.length){
-        return false;
-    }
-    const lookup = {};
 
-    for (let i = 0; i < first.length; i++){
-        let letter = first[i];
-        //if letter exists, increment, otherwise set to 1
-        lookup[letter] ? lookup[letter] += 1 : lookup[letter]=1;
-    }
-    for(let i=0; i < second.length; i++){
-        let letter = second[i];
-        // can't find letter or letter is zero then it's not an anagram
-        if(!lookup[letter]){
-            return false;
-        }else{
-            lookup[letter] -= 1;
+// solution one leads to O(N**2)
+function sumZero(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] + arr[j] === 0) {
+                return [arr[i], arr[j]];
+            }
         }
     }
 }
-const result = validAnagram(cinema, iceman);
+
+
+const result = sumZero([-4, -3, -2, -1, 0, 1, 2, 5])
 console.log(result)
+
+
+//BEST SOLUTION 
+function sumZero(arr){
+    let left = 0;
+    let right = arr.length - 1;
+    while(left < right){
+        let sum = arr[left] + arr[right];
+        if(sum === 0){
+            return [arr[left], arr[right]];
+        }else if(sum > 0){
+            right--;
+        }else{
+            left++;
+        }
+    }
+}
+
+const bestResult = sumZero([-4, -3, -2, -1, 0, 1, 2, 3, 5]);
+console.log(bestResult);
