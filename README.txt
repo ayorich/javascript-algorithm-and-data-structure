@@ -1,52 +1,7 @@
-This pattern involves creating a window 
-which can either be an array or number from one position to another 
-Depending on a certain condition, the window either increases or closes (and a new window is created) 
-very useful for keeping track of a subset of data in an array/string etc.
+This pattern involves dividing a data set into smaller chunks and then repeating a 
+process with a subset of data. this pattern can tremendously decrease time complexity.
 
-This sliding window pattern can be use to find the longest english word in a set of characters
-eg. "hellothere"
+Given a sorted array of integers, write a function called search, 
+that accepts a value and returns the index where the value passed to the function is located. 
+If the value is not found, return -1
 
-
- Write a function called maxSubarraySum which accepts an array 
-of intergers and a number called n. the function should 
-calculate the maximum sum of n consecutive elements in the array.
-
-sample solution will result in O(N**2)
-function maxSubarraySum(arr, num) {
-    if (num > arr.length) {
-        return null;
-    }
-    var max = -Infinity;
-    for (let i = 0; i < arr.length - num + 1; i++) {
-        temp = 0;
-        for (let j = 0; j < num; j++) {
-            temp += arr[i + j];
-        }
-        if (temp > max) {
-            max = temp;
-        }
-    }
-    return max;
-}
-
- maxSubarraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3);
-
-
- probably best solution will result in O(2N) = O(2)
-
- function maxSubarraySum(arr, num){
-  let maxSum = 0;
-  let tempSum = 0;
-  if (arr.length < num) return null;
-  for (let i = 0; i < num; i++) {
-    maxSum += arr[i];
-  }
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
-    tempSum = tempSum - arr[i - num] + arr[i];
-    maxSum = Math.max(maxSum, tempSum);
-  }
-  return maxSum;
-}
-
-maxSubarraySum([2,6,9,2,1,8,5,6,3],3)
