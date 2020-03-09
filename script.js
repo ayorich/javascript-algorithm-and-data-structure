@@ -7,7 +7,6 @@ function pivot(arr, start = 0, end = arr.length - 1) {
     // We are assuming the pivot is always the first element
     let pivot = arr[start];
     let swapIdx = start;
-
     for (let i = start + 1; i <= end; i++) {
         if (pivot > arr[i]) {
             swapIdx++;
