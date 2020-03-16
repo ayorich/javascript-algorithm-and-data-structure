@@ -1,4 +1,4 @@
-STACKS => LAST IN, FIRST OUT
+// STACKS => LAST IN, FIRST OUT
 
 class Node {
     constructor(value) {
