@@ -1,34 +1,74 @@
-    STACKS => LAST IN, FIRST OUT 
+        STACKS => LAST IN, FIRST OUT 
+
+        class Node {
+            constructor(value){
+                this.value = value;
+                this.next = null;
+            }
+        }
+
+        class Stack {
+            constructor(){
+                this.first = null;
+                this.last = null;
+                this.size = 0;
+            }
+            push(val){
+                var newNode = new Node(val);
+                if(!this.first){
+                    this.first = newNode;
+                    this.last = newNode;
+                } else {
+                    var temp = this.first;
+                    this.first = newNode;
+                    this.first.next = temp;
+                }
+                return ++this.size;
+            }
+            pop(){
+                if(!this.first) return null;
+                var temp = this.first;
+                if(this.first === this.last){
+                    this.last = null;
+                }
+                this.first = this.first.next;
+                this.size--;
+                return temp.value;
+            }
+        }
+
+    QUEUE => FIRST IN, FIRST OUT
 
     class Node {
-        constructor(value){
+        constructor(value) {
             this.value = value;
             this.next = null;
         }
     }
 
-    class Stack {
-        constructor(){
+    class Queue {
+        constructor() {
             this.first = null;
             this.last = null;
             this.size = 0;
         }
-        push(val){
+        enqueue(val) {
             var newNode = new Node(val);
-            if(!this.first){
+            if (!this.first) {
                 this.first = newNode;
                 this.last = newNode;
             } else {
-                var temp = this.first;
-                this.first = newNode;
-                this.first.next = temp;
+                this.last.next = newNode;
+                this.last = newNode;
             }
             return ++this.size;
         }
-        pop(){
-            if(!this.first) return null;
+
+        dequeue() {
+            if (!this.first) return null;
+
             var temp = this.first;
-            if(this.first === this.last){
+            if (this.first === this.last) {
                 this.last = null;
             }
             this.first = this.first.next;
@@ -36,4 +76,3 @@
             return temp.value;
         }
     }
-
