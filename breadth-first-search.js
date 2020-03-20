@@ -65,11 +65,25 @@ class BinarySearchTree {
         }
         return false;
     }
-   
+    //BREADTH FIRST TREE SEARCH
+    BFS() {
+        var node = this.root,
+            data = [],
+            queue = [];
+        queue.push(node);
+
+        while (queue.length) {
+            node = queue.shift();
+            data.push(node.value);
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return data;
+    }
 }
-            // 10
-        //  6       15
-     //   3   8         20
+// 10
+//  6       15
+//   3   8         20
 
 var tree = new BinarySearchTree();
 tree.insert(10);
