@@ -80,7 +80,20 @@ class BinarySearchTree {
         }
         return data;
     }
-    
+
+    //---------------DEPTH FIRST TREE SEARCH---------------//
+    //---------PREORDER----------//
+    DFSPreOrder() {
+        var data = [];
+        function traverse(node) {
+            data.push(node.value);
+            if (node.left) traverse(node.left);
+            if (node.right) traverse(node.right);
+        }
+        traverse(this.root);
+        return data;
+    }
+
 }
             // 10
         //  6       15
@@ -94,5 +107,6 @@ tree.insert(3);
 tree.insert(8);
 tree.insert(20);
 tree.BFS();
+console.log(tree.DFSPreOrder()); // [10,6,3,8,15,20]
 
 
