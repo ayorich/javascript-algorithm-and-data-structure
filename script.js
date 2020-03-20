@@ -50,6 +50,7 @@ class BinarySearchTree {
         if (!found) return undefined;
         return current;
     }
+                
     contains(value) {
         if (this.root === null) return false;
         var current = this.root,
@@ -67,10 +68,10 @@ class BinarySearchTree {
     }
 }
 
+                //      10
+                 //   5     13
+                 // 2  7  11  16
 
-//      10
-//   5     13
-// 2  7  11  16
 
 var tree = new BinarySearchTree();
 tree.insert(10)
