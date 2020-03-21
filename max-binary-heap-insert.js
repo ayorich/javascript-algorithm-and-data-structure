@@ -7,11 +7,11 @@ class MaxBinaryHeap {
         this.bubbleUp();
     }
     bubbleUp() {
-        let idx = this.values.length - 1; //2
+        let idx = this.values.length - 1; //1
         const element = this.values[idx];//55
         while (idx > 0) {
-            let parentIdx = Math.floor((idx - 1) / 2);//1
-            let parent = this.values[parentIdx]; //39
+            let parentIdx = Math.floor((idx - 1) / 2);//0
+            let parent = this.values[parentIdx]; //41
             if (element <= parent) break;
             this.values[parentIdx] = element;
             this.values[idx] = parent;
@@ -28,4 +28,4 @@ heap.insert(27);
 heap.insert(12);
 heap.insert(55);
 // insert => [41,39,33,18,27,12,55]
-// result => [41,55,39,18,27,12,33]
+// result => [55,41,39,18,27,12,33]
