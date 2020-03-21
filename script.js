@@ -20,7 +20,7 @@ class MaxBinaryHeap {
             idx = parentIdx;
         }
     }
-    print(){
+    print() {
         return this.values;
     }
 }
