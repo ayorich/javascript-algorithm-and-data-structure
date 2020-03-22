@@ -66,11 +66,4 @@ g.addEdge("D", "F")
 g.addEdge("E", "F")
 g.depthFirstRecursive("A")
 
-//          A
-//        /   \
-//       B     C
-//       |     |
-//       D --- E
-//        \   /
-//          F
 
