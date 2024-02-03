@@ -1,4 +1,5 @@
 // https://onecompiler.com/javascript/4239qpp7f
+// https://leetcode.com/list/9gvhzx23/
 class Node {
   constructor(data) {
     this.data = data;
