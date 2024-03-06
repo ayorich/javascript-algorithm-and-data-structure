@@ -18,3 +18,4 @@ var longestCommonPrefix = function (strs) {
   }
   return prefix;
 };
+// ["flower", "flow", "flight"];x
