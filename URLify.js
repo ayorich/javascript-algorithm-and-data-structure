@@ -42,3 +42,27 @@ function urlify(str, trueLength) {
   }
   return arr.join('');
 }
+// space complexity O(1)
+// time complexity O(n)
+
+function urlify(str, trueLength) {
+  let urlified = '';
+  for (let i = 0; i < trueLength; i++) {
+    if (str[i] === ' ') {
+      urlified += '%20';
+    } else {
+      urlified += str[i];
+    }
+  }
+  return urlified;
+}
+
+function urlify(str) {
+  // Use built-in replace method with a regular expression to replace all spaces
+  return str.replace(/\s/g, '%20');
+}
+
+function urlify(str) {
+  // Split the string on spaces, then join the resulting array with '%20'
+  return str.trim().split(' ').join('%20');
+}
