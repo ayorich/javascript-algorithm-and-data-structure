@@ -29,7 +29,7 @@ function insertEdit(word1, word2) {
   let index1 = 0;
   let index2 = 0;
 
-  while (index1 <= word1.length && index2 < -word2.length) {
+  while (index1 <= word1.length && index2 <= word2.length) {
     if (word1.charAt(index1) !== word2.charAt(index2)) {
       if (index1 !== index2) {
         return false;
@@ -53,4 +53,37 @@ function oneEditAway(word1, word2) {
     return insertEdit(word1, word2);
   }
   return false;
+}
+
+function oneEditAway(first, second) {
+  // If the length difference is more than 1, return false
+  if (Math.abs(first.length - second.length) > 1) {
+    return false;
+  }
+
+  // Identify the shorter and longer string
+  let shorter = first.length < second.length ? first : second;
+  let longer = first.length < second.length ? second : first;
+
+  let index1 = 0;
+  let index2 = 0;
+  let foundDifference = false;
+
+  while (index1 < shorter.length && index2 < longer.length) {
+    if (shorter.charAt(index1) !== longer.charAt(index2)) {
+      if (foundDifference) {
+        return false;
+      }
+      foundDifference = true;
+
+      if (shorter.length === longer.length) {
+        index1++; // On replace, move shorter pointer
+      }
+    } else {
+      index1++; // If matching, move shorter pointer
+    }
+    index2++; // Always move pointer for longer string
+  }
+
+  return true;
 }
